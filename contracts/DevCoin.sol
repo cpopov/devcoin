@@ -1,7 +1,7 @@
 pragma solidity ^0.4.18;
 
 
-import "./ERC20Interface.sol";
+import "./ERC20.sol";
 import "./library/SafeMath.sol";
 
 /**
@@ -9,7 +9,7 @@ Implements ERC 20 Token standard: https://github.com/ethereum/EIPs/issues/20
 
 This is a contract for a fixed supply coin.
 */
-contract DevCoin is ERC20Interface {
+contract DevCoin is ERC20 {
   using SafeMath for uint256;
 
   // meta data

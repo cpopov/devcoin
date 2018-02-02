@@ -9,7 +9,7 @@
   "scripts": {
     "compile": "truffle compile",
     "test": "eslint . && truffle test",
-    "lint": "eslint ."
+    "lint": "solhint contracts/**/*.sol && eslint ."
   },
   "license": "MIT",
   "dependencies": {},
@@ -23,6 +23,7 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "mocha": "^4.0.1",
+    "solhint": "^1.1.10",
     "truffle": "^4.0.3",
     "truffle-hdwallet-provider": "^0.0.3"
   }

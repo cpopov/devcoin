@@ -12,18 +12,19 @@
     "jest": true
   },
   "globals": {
-    "artifacts": false,
-    "contract": false,
-    "assert": false,
-    "web3": false
+    "artifacts": true,
+    "assert": true,
+    "contract": true,
+    "web3": true
   },
   "rules": {
     // Strict mode
     "strict": [
       2,
       "global"
-    ]
+    ],
 
     // Code style
+    "space-before-function-paren": "off"
   }
 }

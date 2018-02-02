@@ -5,7 +5,7 @@ pragma solidity ^0.4.18;
 * see https://github.com/ethereum/EIPs/issues/20
 * This is a simple fixed supply token contract.
 */
-contract ERC20Interface {
+contract ERC20 {
 
     /**
     * Get the total token supply
