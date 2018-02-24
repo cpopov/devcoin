@@ -15,7 +15,7 @@ contract DevCoin is ERC20 {
   // meta data
   string public constant symbol = "DEV";
 
-  string public version = '0.1';
+  string public version = '1.0';
 
   string public constant name = "DevCoin";
 
@@ -34,25 +34,34 @@ contract DevCoin is ERC20 {
   // the function transferFrom()
   mapping(address => mapping(address => uint256)) internal allowed;
 
-  // Constructor
-  // the creator gets all the tokens initially
+  /**
+  * Constructor
+  * the creator gets all the tokens initially
+  */
   function DevCoin() public {
     owner = msg.sender;
     balances[owner] = TOTAL_SUPPLY;
   }
 
-  // Implements ERC20Interface
+  /**
+    * Get the total token supply
+    */
   function totalSupply() public view returns (uint256 supply) {
     supply = TOTAL_SUPPLY;
   }
 
-  // Implements ERC20Interface
+  /**
+    * Get the account balance of an account with address _owner
+    */
   function balanceOf(address _owner) public view returns (uint256 balance) {
     return balances[_owner];
   }
 
-  // Implements ERC20Interface
-  // No need to protect balances because only sender balance is accessed here
+  /**
+    * Send _value amount of tokens to address _to
+    * Only the owner can call this function
+    * No need to protect balances because only sender balance is accessed here
+    */
   function transfer(address _to, uint256 _amount) public returns (bool success) {
     require(_to != address(0));
     require(_amount <= balances[msg.sender]);
@@ -66,7 +75,9 @@ contract DevCoin is ERC20 {
     return true;
   }
 
-  // Implements ERC20Interface
+  /**
+    * Send _value amount of tokens from address _from to address _to
+    */
   function transferFrom(address _from, address _to, uint256 _amount) public returns (bool success) {
     // protection against integer overflow
     require(_to != address(0));
@@ -82,7 +93,10 @@ contract DevCoin is ERC20 {
     return true;
   }
 
-  // Implements ERC20Interface
+  /** Allow _spender to withdraw from your account, multiple times, up to the _value amount.
+    * If this function is called again it overwrites the current allowance with _value.
+    * this function is required for some DEX functionality
+    */
   function approve(address _spender, uint256 _value) public returns (bool success) {
     // no need to check sender identity as he can only modify his own allowance
     allowed[msg.sender][_spender] = _value;
@@ -91,10 +105,11 @@ contract DevCoin is ERC20 {
     return true;
   }
 
-  // Implements ERC20Interface
+  /**
+    * Returns the amount which _spender is still allowed to withdraw from _owner
+    */
   function allowance(address _owner, address _spender) public view returns (uint256 remaining) {
     return allowed[_owner][_spender];
   }
-
 
 }
