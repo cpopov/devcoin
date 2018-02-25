@@ -23,3 +23,5 @@ pids
 #Truffle
 build/
 secrets.json
+coverage.json
+coverage/

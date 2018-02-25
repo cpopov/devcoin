@@ -1,6 +1,6 @@
 {
   "name": "devcoin-contracts",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Ethereum Smart Contracts for Dev Coin",
   "main": "truffle.js",
   "directories": {
@@ -9,7 +9,8 @@
   "scripts": {
     "compile": "truffle compile",
     "test": "eslint . && truffle test",
-    "lint": "solhint contracts/**/*.sol && eslint ."
+    "lint": "solhint contracts/**/*.sol && eslint .",
+    "coverage": "solidity-coverage"
   },
   "license": "MIT",
   "dependencies": {},
@@ -24,6 +25,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "mocha": "^4.0.1",
     "solhint": "^1.1.10",
+    "solidity-coverage": "^0.4.10",
     "truffle": "^4.0.3",
     "truffle-hdwallet-provider": "^0.0.3"
   }
