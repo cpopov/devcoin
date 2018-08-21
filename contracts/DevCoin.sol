@@ -1,8 +1,8 @@
-pragma solidity 0.4.18;
+pragma solidity 0.4.24;
 
 
 import "./ERC20.sol";
-import "./library/SafeMath.sol";
+import "./SafeMath.sol";
 
 /**
 Implements ERC 20 Token standard: https://github.com/ethereum/EIPs/issues/20
@@ -21,7 +21,7 @@ contract DevCoin is ERC20 {
 
   uint256 public constant decimals = 18;
 
-  uint256 TOTAL_SUPPLY = 100 * (10 ** 6) * 10 ** decimals; // 100 millions
+  uint256 constant TOTAL_SUPPLY = 100 * (10 ** 6) * 10 ** decimals; // 100 millions
 
   // Owner of this contract
   address public owner;
@@ -38,7 +38,7 @@ contract DevCoin is ERC20 {
   * Constructor
   * the creator gets all the tokens initially
   */
-  function DevCoin() public {
+  constructor() public {
     owner = msg.sender;
     balances[owner] = TOTAL_SUPPLY;
   }
@@ -46,8 +46,8 @@ contract DevCoin is ERC20 {
   /**
     * Get the total token supply
     */
-  function totalSupply() public view returns (uint256 supply) {
-    supply = TOTAL_SUPPLY;
+  function totalSupply() public view returns (uint256) {
+    return TOTAL_SUPPLY;
   }
 
   /**
@@ -71,7 +71,7 @@ contract DevCoin is ERC20 {
     balances[_to] = balances[_to].add(_amount);
 
     // notify
-    Transfer(msg.sender, _to, _amount);
+    emit Transfer(msg.sender, _to, _amount);
     return true;
   }
 
@@ -89,7 +89,7 @@ contract DevCoin is ERC20 {
     allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_amount);
 
     // notify
-    Transfer(_from, _to, _amount);
+    emit Transfer(_from, _to, _amount);
     return true;
   }
 
@@ -101,7 +101,7 @@ contract DevCoin is ERC20 {
     // no need to check sender identity as he can only modify his own allowance
     allowed[msg.sender][_spender] = _value;
     // notify
-    Approval(msg.sender, _spender, _value);
+    emit Approval(msg.sender, _spender, _value);
     return true;
   }
 

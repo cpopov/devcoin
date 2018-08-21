@@ -1,14 +1,14 @@
 {
   "name": "devcoin-contracts",
-  "version": "1.0.0",
-  "description": "Ethereum Smart Contracts for Dev Coin",
+  "version": "1.1.0",
+  "description": "Ethereum Smart Contracts for DevCoin",
   "main": "truffle.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "compile": "truffle compile",
-    "test": "eslint . && truffle test",
+    "test": "truffle test",
     "lint": "solhint contracts/**/*.sol && eslint .",
     "coverage": "solidity-coverage"
   },
@@ -17,16 +17,16 @@
   "devDependencies": {
     "bignumber": "^1.1.0",
     "chai": "^4.1.2",
-    "eslint": "^4.13.1",
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^4.0.1",
-    "solhint": "^1.1.10",
-    "solidity-coverage": "^0.4.10",
-    "truffle": "^4.0.3",
-    "truffle-hdwallet-provider": "^0.0.3"
+    "chai-bignumber": "^2.0.2",
+    "eslint": "^5.4.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.2.0",
+    "solhint": "^1.2.1",
+    "solidity-coverage": "^0.5.7",
+    "truffle": "^4.1.14"
   }
 }
